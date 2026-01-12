@@ -31,6 +31,7 @@ html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -41,6 +42,8 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    width: 100%;
+    max-width: 100vw;
 }
 
 /* ===================================
@@ -484,7 +487,7 @@ nav {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    background-position: center;
+    overflow-x: hidden;
 }
 
 .features::before {
@@ -504,12 +507,16 @@ nav {
     gap: 2rem;
     max-width: 1400px;
     margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .feature-card {
     background: linear-gradient(145deg, rgba(14, 138, 69, 0.1), rgba(14, 138, 69, 0.02));
     border: 1px solid rgba(74, 232, 140, 0.15);
     border-radius: 20px;
+    width: 100%;
+    box-sizing: border-box;
     padding: 2.5rem;
     transition: all 0.4s ease;
     position: relative;
@@ -1215,6 +1222,25 @@ footer {
     .testimonial-grid {
         grid-template-columns: 1fr;
     }
+
+    /* Fix padding on mobile to prevent text cutoff */
+    .features,
+    .product,
+    .pricing,
+    .testimonials,
+    .cta {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .feature-card {
+        padding: 1.5rem;
+        margin: 0;
+    }
+
+    .section-header {
+        padding: 0 0.5rem;
+    }
     
     .price-card.featured {
         transform: none;
@@ -1290,7 +1316,8 @@ footer {
     }
 
     .hero h1 {
-        font-size: 2.2rem;
+        font-size: 2rem;
+        word-wrap: break-word;
     }
 
     .hero p {
@@ -1299,6 +1326,12 @@ footer {
 
     .hero-buttons {
         flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        text-align: center;
     }
 
     .features,
@@ -1307,6 +1340,27 @@ footer {
     .testimonials,
     .cta {
         padding: 4rem 1rem;
+    }
+
+    .feature-card {
+        padding: 1.25rem;
+    }
+
+    .feature-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .feature-card p {
+        font-size: 0.9rem;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+        word-wrap: break-word;
+    }
+
+    .section-tag {
+        font-size: 0.75rem;
     }
 
     footer {
