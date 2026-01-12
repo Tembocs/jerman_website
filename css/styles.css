@@ -29,6 +29,8 @@
 
 html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
 }
 
 body {
@@ -37,6 +39,8 @@ body {
     color: var(--text-primary);
     overflow-x: hidden;
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* ===================================
@@ -1225,8 +1229,18 @@ footer {
     }
 
     .phone-showcase {
-        flex-direction: column;
-        gap: 2rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .phone-mockup {
+        flex: 0 0 auto;
+    }
+
+    .phone-mockup.outer {
+        display: none; /* Hide outer phones on tablet */
     }
 
     .phone-mockup.side {
@@ -1236,15 +1250,18 @@ footer {
 
     .phone-mockup.center {
         transform: none;
-        order: -1;
     }
 
     .phone-frame img {
-        width: 200px;
+        width: 140px;
     }
 
     .phone-mockup.center .phone-frame img {
-        width: 220px;
+        width: 160px;
+    }
+
+    .phone-mockup.side .phone-frame img {
+        width: 130px;
     }
     
     .cta-container {
@@ -1306,5 +1323,143 @@ footer {
 
     .cta-buttons {
         flex-direction: column;
+    }
+
+    /* Phone showcase for small screens */
+    .phone-showcase {
+        gap: 0.75rem;
+    }
+
+    .phone-mockup.side {
+        display: none; /* Only show center phone on small screens */
+    }
+
+    .phone-mockup.center .phone-frame img {
+        width: 200px;
+    }
+}
+
+/* ===================================
+   Enhanced Responsive Design
+   =================================== */
+
+/* Extra small devices (phones, 320px and up) */
+@media (max-width: 375px) {
+    html {
+        font-size: 14px;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+        line-height: 1.3;
+    }
+
+    .hero p {
+        font-size: 0.95rem;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .section-tag {
+        font-size: 0.75rem;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .btn {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.85rem;
+    }
+
+    .phone-frame img {
+        width: 140px;
+    }
+
+    .phone-mockup.center .phone-frame img {
+        width: 160px;
+    }
+
+    .price-card {
+        padding: 1.5rem;
+    }
+
+    .price {
+        font-size: 2.5rem;
+    }
+
+    .cta-container {
+        padding: 2rem 1rem;
+    }
+
+    .cta-container h2 {
+        font-size: 1.6rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-links h4 {
+        margin-top: 1.5rem;
+    }
+}
+
+/* Background image optimization for all devices */
+@media (max-width: 992px) {
+    .hero,
+    .features,
+    .pricing,
+    .testimonials,
+    .cta {
+        background-attachment: scroll; /* Better performance on mobile */
+    }
+}
+
+/* Ensure images are responsive */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Improve touch targets for mobile */
+@media (max-width: 768px) {
+    .btn {
+        min-height: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        padding: 0.75rem 0;
+        min-height: 44px;
+    }
+
+    .feature-card,
+    .testimonial-card,
+    .price-card {
+        padding: 1.5rem;
+    }
+
+    .footer-links a {
+        padding: 0.5rem 0;
+        display: inline-block;
+    }
+}
+
+/* Landscape phone orientation */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: 5rem 2rem 3rem;
+    }
+
+    .hero-visual {
+        height: 250px;
     }
 }
