@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center - JERMAN</title>
+    <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .help-page {
+            min-height: 100vh;
+            padding: 10rem 4rem 4rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .help-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .help-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .help-header h1 span { color: var(--accent); }
+        .help-header p {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+        }
+        .search-box {
+            max-width: 500px;
+            margin: 2rem auto;
+            position: relative;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(74, 232, 140, 0.2);
+            border-radius: 50px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        .search-box input::placeholder {
+            color: var(--text-muted);
+        }
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .faq-category {
+            background: rgba(14, 138, 69, 0.08);
+            border: 1px solid rgba(74, 232, 140, 0.15);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+        .faq-category h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        .faq-category ul {
+            list-style: none;
+        }
+        .faq-category li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(74, 232, 140, 0.1);
+        }
+        .faq-category li:last-child {
+            border-bottom: none;
+        }
+        .faq-category a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .faq-category a:hover {
+            color: var(--accent);
+        }
+        .contact-support {
+            background: linear-gradient(145deg, rgba(14, 138, 69, 0.15), rgba(14, 138, 69, 0.05));
+            border: 1px solid rgba(74, 232, 140, 0.2);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+        }
+        .contact-support h2 {
+            margin-bottom: 1rem;
+        }
+        .contact-support p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+        .support-options {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-top: 2rem;
+        }
+        .back-link:hover { color: var(--accent); }
+    </style>
+</head>
+<body>
+    <div class="bg-grid"></div>
+    <nav>
+        <a href="../index.html" class="logo">
+            <img src="../images/ChatGPT Icon.png" alt="JERMAN Logo" class="logo-icon">
+            <span class="logo-text">JERMAN</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="../index.html#features">Features</a></li>
+            <li><a href="../index.html#product">LindAV</a></li>
+            <li><a href="../index.html#pricing">Pricing</a></li>
+        </ul>
+        <div class="nav-cta">
+            <a href="signin.html" class="btn btn-outline">Sign In</a>
+            <a href="download.html" class="btn btn-primary">Get Protected</a>
+        </div>
+    </nav>
+
+    <section class="help-page">
+        <div class="help-header">
+            <h1>Help <span>Center</span></h1>
+            <p>Find answers to common questions or contact our support team</p>
+            <div class="search-box">
+                <input type="text" placeholder="Search for help articles...">
+            </div>
+        </div>
+
+        <div class="faq-grid">
+            <div class="faq-category">
+                <h3>🚀 Getting Started</h3>
+                <ul>
+                    <li><a href="#">How to download and install LindAV</a></li>
+                    <li><a href="#">Creating your account</a></li>
+                    <li><a href="#">Running your first scan</a></li>
+                    <li><a href="#">Understanding the dashboard</a></li>
+                </ul>
+            </div>
+            <div class="faq-category">
+                <h3>🛡️ Security Features</h3>
+                <ul>
+                    <li><a href="#">Real-time protection settings</a></li>
+                    <li><a href="#">App scanner explained</a></li>
+                    <li><a href="#">Safe browsing configuration</a></li>
+                    <li><a href="#">Privacy Guard setup</a></li>
+                </ul>
+            </div>
+            <div class="faq-category">
+                <h3>💳 Billing & Subscriptions</h3>
+                <ul>
+                    <li><a href="#">Upgrading to Premium</a></li>
+                    <li><a href="#">Managing your subscription</a></li>
+                    <li><a href="#">Refund policy</a></li>
+                    <li><a href="#">Payment methods</a></li>
+                </ul>
+            </div>
+            <div class="faq-category">
+                <h3>🔧 Troubleshooting</h3>
+                <ul>
+                    <li><a href="#">App not starting properly</a></li>
+                    <li><a href="#">Scan stuck or slow</a></li>
+                    <li><a href="#">Battery drain issues</a></li>
+                    <li><a href="#">Notification problems</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="contact-support">
+            <h2>Still need help?</h2>
+            <p>Our support team is available 24/7 to assist you with any questions.</p>
+            <div class="support-options">
+                <a href="contact.html" class="btn btn-primary">Contact Support</a>
+                <a href="mailto:support@jerman.com" class="btn btn-outline">Email Us</a>
+            </div>
+        </div>
+
+        <a href="../index.html" class="back-link">← Back to Home</a>
+    </section>
+    <script src="../js/main.js"></script>
+</body>
+</html>
