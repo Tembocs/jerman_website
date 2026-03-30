@@ -10,7 +10,59 @@ document.addEventListener('DOMContentLoaded', function() {
     initNavbarScroll();
     initAnimationObserver();
     initStatsCounter();
+    initPWA();
 });
+
+let deferredInstallPrompt;
+
+/**
+ * Progressive Web App setup
+ */
+function initPWA() {
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js').catch(() => {
+                // Ignore registration failures in unsupported contexts.
+            });
+        });
+    }
+
+    window.addEventListener('beforeinstallprompt', (event) => {
+        event.preventDefault();
+        deferredInstallPrompt = event;
+        updateInstallButtons(true);
+    });
+
+    window.addEventListener('appinstalled', () => {
+        deferredInstallPrompt = null;
+        updateInstallButtons(false);
+    });
+
+    document.querySelectorAll('[data-install-app]').forEach(button => {
+        button.addEventListener('click', async () => {
+            if (deferredInstallPrompt) {
+                deferredInstallPrompt.prompt();
+                await deferredInstallPrompt.userChoice;
+                deferredInstallPrompt = null;
+                updateInstallButtons(false);
+                return;
+            }
+
+            alert('Installation is available in Chrome/Edge via the browser menu: Install app.');
+        });
+    });
+}
+
+function updateInstallButtons(canInstall) {
+    document.querySelectorAll('[data-install-app]').forEach(button => {
+        button.disabled = !canInstall;
+        if (!canInstall) {
+            button.setAttribute('title', 'Use your browser menu to install this app.');
+        } else {
+            button.removeAttribute('title');
+        }
+    });
+}
 
 /**
  * Mobile Menu Toggle
