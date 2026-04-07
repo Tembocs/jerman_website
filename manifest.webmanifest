@@ -9,13 +9,13 @@
   "theme_color": "#0E8A45",
   "icons": [
     {
-      "src": "images/ChatGPT Icon.png",
+      "src": "images/jerman-logo.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "images/ChatGPT Icon.png",
+      "src": "images/jerman-logo.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"

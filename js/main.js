@@ -101,28 +101,34 @@ function initSmoothScroll() {
 function initNavbarScroll() {
     const nav = document.querySelector('nav');
     let lastScrollY = window.scrollY;
+    let ticking = false;
 
     window.addEventListener('scroll', () => {
-        const currentScrollY = window.scrollY;
-        
-        if (nav) {
-            if (currentScrollY > 100) {
-                nav.style.background = 'rgba(2, 26, 13, 0.95)';
-                nav.style.padding = '1rem 4rem';
-            } else {
-                nav.style.background = 'rgba(2, 26, 13, 0.8)';
-                nav.style.padding = '1.5rem 4rem';
-            }
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                const currentScrollY = window.scrollY;
+                
+                if (nav) {
+                    if (currentScrollY > 100) {
+                        nav.style.background = 'rgba(2, 26, 13, 0.95)';
+                        nav.style.padding = '1rem 4rem';
+                    } else {
+                        nav.style.background = 'rgba(2, 26, 13, 0.8)';
+                        nav.style.padding = '1.5rem 4rem';
+                    }
 
-            // Hide/show navbar on scroll
-            if (currentScrollY > lastScrollY && currentScrollY > 500) {
-                nav.style.transform = 'translateY(-100%)';
-            } else {
-                nav.style.transform = 'translateY(0)';
-            }
+                    if (currentScrollY > lastScrollY && currentScrollY > 500) {
+                        nav.style.transform = 'translateY(-100%)';
+                    } else {
+                        nav.style.transform = 'translateY(0)';
+                    }
+                }
+                
+                lastScrollY = currentScrollY;
+                ticking = false;
+            });
+            ticking = true;
         }
-        
-        lastScrollY = currentScrollY;
     });
 }
 
@@ -236,7 +242,7 @@ function createParticles() {
     const container = document.querySelector('.floating-particles');
     if (!container) return;
 
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 6; i++) {
         const particle = document.createElement('div');
         particle.className = 'particle';
         particle.style.top = Math.random() * 100 + '%';
@@ -249,34 +255,3 @@ function createParticles() {
 
 // Call particle creation on load
 document.addEventListener('DOMContentLoaded', createParticles);
-
-/**
- * Form validation utility (for future use)
- */
-function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-}
-
-/**
- * Lazy loading for images
- */
-function initLazyLoading() {
-    const images = document.querySelectorAll('img[data-src]');
-    
-    const imageObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.removeAttribute('data-src');
-                imageObserver.unobserve(img);
-            }
-        });
-    });
-
-    images.forEach(img => imageObserver.observe(img));
-}
-
-// Initialize lazy loading
-document.addEventListener('DOMContentLoaded', initLazyLoading);

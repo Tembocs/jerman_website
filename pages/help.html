@@ -15,13 +15,13 @@
     <meta property="og:site_name" content="JERMAN">
     <meta property="og:title" content="Help Center - JERMAN">
     <meta property="og:description" content="Get help with LindAV. Find answers, troubleshooting guides, and support.">
-    <meta property="og:image" content="https://jermancompany.netlify.app/images/ChatGPT Icon.png">
+    <meta property="og:image" content="https://jermancompany.netlify.app/images/jerman-logo.png">
     <meta property="og:url" content="https://jermancompany.netlify.app/pages/help.html">
     <title>Help Center - JERMAN</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="../images/ChatGPT Icon.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../images/ChatGPT Icon.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="../images/ChatGPT Icon.png">
-    <link rel="shortcut icon" href="../images/ChatGPT Icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/jerman-logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/jerman-logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/jerman-logo.png">
+    <link rel="shortcut icon" href="../images/jerman-logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -103,6 +103,34 @@
         .faq-category a:hover {
             color: var(--accent);
         }
+        .faq-toggle {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            font-family: inherit;
+            cursor: pointer;
+            text-align: left;
+            width: 100%;
+            padding: 0;
+            transition: color 0.3s;
+        }
+        .faq-toggle:hover { color: var(--accent); }
+        .faq-toggle::before { content: '▸ '; color: var(--accent); }
+        .open .faq-toggle::before { content: '▾ '; }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        .faq-answer a { color: var(--accent); text-decoration: underline; }
+        .open .faq-answer {
+            max-height: 200px;
+            padding-top: 0.5rem;
+        }
         .contact-support {
             background: linear-gradient(145deg, rgba(14, 138, 69, 0.15), rgba(14, 138, 69, 0.05));
             border: 1px solid rgba(74, 232, 140, 0.2);
@@ -137,13 +165,14 @@
     <div class="bg-grid"></div>
     <nav>
         <a href="../index.html" class="logo">
-            <img src="../images/ChatGPT Icon.png" alt="JERMAN Logo" class="logo-icon">
+            <img src="../images/jerman-logo.png" alt="JERMAN Logo" class="logo-icon">
             <span class="logo-text">JERMAN</span>
         </a>
         <ul class="nav-links">
             <li><a href="../index.html#features">Features</a></li>
             <li><a href="../index.html#product">LindAV</a></li>
             <li><a href="../index.html#pricing">Pricing</a></li>
+            <li><a href="../index.html#testimonials">Reviews</a></li>
         </ul>
         <div class="nav-cta">
             <a href="signin.html" class="btn btn-outline">Sign In</a>
@@ -164,37 +193,85 @@
             <div class="faq-category">
                 <h3>🚀 Getting Started</h3>
                 <ul>
-                    <li><a href="#">How to download and install LindAV</a></li>
-                    <li><a href="#">Creating your account</a></li>
-                    <li><a href="#">Running your first scan</a></li>
-                    <li><a href="#">Understanding the dashboard</a></li>
+                    <li>
+                        <button class="faq-toggle" onclick="this.parentElement.classList.toggle('open')">How to download and install LindAV</button>
+                        <div class="faq-answer">Visit the <a href="download.html">Download page</a> and choose your platform (Android APK or Windows Setup). On Android, enable "Install from unknown sources" in Settings. On Windows, run the Setup wizard.</div>
+                    </li>
+                    <li>
+                        <button class="faq-toggle" onclick="this.parentElement.classList.toggle('open')">Creating your account</button>
+                        <div class="faq-answer">Open LindAV after installation and tap "Sign Up." Enter your email and create a password. You'll receive a confirmation email to activate your account.</div>
+                    </li>
+                    <li>
+                        <button class="faq-toggle" onclick="this.parentElement.classList.toggle('open')">Running your first scan</button>
+                        <div class="faq-answer">After signing in, tap the large "Scan" button on the dashboard. LindAV will check all installed apps, files, and system settings. Your first scan may take a few minutes.</div>
+                    </li>
+                    <li>
+                        <button class="faq-toggle" onclick="this.parentElement.classList.toggle('open')">Understanding the dashboard</button>
+                        <div class="faq-answer">The dashboard shows your protection status, recent scan results, and threat alerts. Green means all clear, yellow means minor issues found, and red means action is needed.</div>
+                    </li>
                 </ul>
             </div>
             <div class="faq-category">
                 <h3>🛡️ Security Features</h3>
                 <ul>
-                    <li><a href="#">Real-time protection settings</a></li>
-                    <li><a href="#">App scanner explained</a></li>
-                    <li><a href="#">Safe browsing configuration</a></li>
-                    <li><a href="#">Privacy Guard setup</a></li>
+                    <li>
+                        <button class="faq-toggle" onclick="this.parentElement.classList.toggle('open')">Real-time protection settings</button>
+                        <div class="faq-answer">Go to Settings → Real-time Protection to enable or configure scanning. When enabled, LindAV monitors app installs, downloads, and file changes in the background.</div>
+                    </li>
+                    <li>
+                        <button class="faq-toggle" onclick="this.parentElement.classList.toggle('open')">App scanner explained</button>
+                        <div class="faq-answer">The App Scanner checks every installed app for known malware signatures, suspicious behavior, and dangerous permissions. It runs automatically after each app is installed or updated.</div>
+                    </li>
+                    <li>
+                        <button class="faq-toggle" onclick="this.parentElement.classList.toggle('open')">Safe browsing configuration</button>
+                        <div class="faq-answer">Enable Safe Browsing under Settings → Web Protection. LindAV will block known phishing sites, malicious URLs, and unsafe downloads across all supported browsers.</div>
+                    </li>
+                    <li>
+                        <button class="faq-toggle" onclick="this.parentElement.classList.toggle('open')">Privacy Guard setup</button>
+                        <div class="faq-answer">Privacy Guard monitors which apps access your camera, microphone, location, and contacts. Go to Settings → Privacy Guard to review and control app permissions.</div>
+                    </li>
                 </ul>
             </div>
             <div class="faq-category">
                 <h3>💳 Billing & Subscriptions</h3>
                 <ul>
-                    <li><a href="#">Upgrading to Premium</a></li>
-                    <li><a href="#">Managing your subscription</a></li>
-                    <li><a href="#">Refund policy</a></li>
-                    <li><a href="#">Payment methods</a></li>
+                    <li>
+                        <button class="faq-toggle" onclick="this.parentElement.classList.toggle('open')">Upgrading to Premium</button>
+                        <div class="faq-answer">Open LindAV → Settings → Subscription → "Upgrade to Premium." Choose monthly ($4.99/mo) or annual billing. Premium unlocks Privacy Guard, Anti-Theft, Battery Optimizer, and priority support.</div>
+                    </li>
+                    <li>
+                        <button class="faq-toggle" onclick="this.parentElement.classList.toggle('open')">Managing your subscription</button>
+                        <div class="faq-answer">Manage your subscription in LindAV → Settings → Subscription, or through Google Play Store subscriptions. You can change plans or cancel at any time.</div>
+                    </li>
+                    <li>
+                        <button class="faq-toggle" onclick="this.parentElement.classList.toggle('open')">Refund policy</button>
+                        <div class="faq-answer">We offer a 30-day money-back guarantee on all Premium subscriptions. Contact <a href="mailto:support@jerman.com">support@jerman.com</a> with your order details to request a refund.</div>
+                    </li>
+                    <li>
+                        <button class="faq-toggle" onclick="this.parentElement.classList.toggle('open')">Payment methods</button>
+                        <div class="faq-answer">We accept credit/debit cards, Google Pay, and PayPal through the Google Play Store. Enterprise customers can pay by invoice — contact our <a href="contact.html">sales team</a>.</div>
+                    </li>
                 </ul>
             </div>
             <div class="faq-category">
                 <h3>🔧 Troubleshooting</h3>
                 <ul>
-                    <li><a href="#">App not starting properly</a></li>
-                    <li><a href="#">Scan stuck or slow</a></li>
-                    <li><a href="#">Battery drain issues</a></li>
-                    <li><a href="#">Notification problems</a></li>
+                    <li>
+                        <button class="faq-toggle" onclick="this.parentElement.classList.toggle('open')">App not starting properly</button>
+                        <div class="faq-answer">Try clearing the app cache (Settings → Apps → LindAV → Clear Cache), then restart your device. If the issue persists, reinstall LindAV from the <a href="download.html">Download page</a>.</div>
+                    </li>
+                    <li>
+                        <button class="faq-toggle" onclick="this.parentElement.classList.toggle('open')">Scan stuck or slow</button>
+                        <div class="faq-answer">Close background apps to free up memory, ensure you have at least 500 MB of free storage, and make sure you're connected to the internet for the latest threat database updates.</div>
+                    </li>
+                    <li>
+                        <button class="faq-toggle" onclick="this.parentElement.classList.toggle('open')">Battery drain issues</button>
+                        <div class="faq-answer">Reduce scan frequency in Settings → Scan Schedule. LindAV is optimized for low battery usage, but frequent full scans on older devices may increase consumption. Try "Smart Scan" mode.</div>
+                    </li>
+                    <li>
+                        <button class="faq-toggle" onclick="this.parentElement.classList.toggle('open')">Notification problems</button>
+                        <div class="faq-answer">Ensure notifications are enabled for LindAV in your device's Settings → Apps → LindAV → Notifications. Also check that LindAV isn't restricted by battery optimization settings.</div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -208,8 +285,57 @@
             </div>
         </div>
 
-        <a href="../index.html" class="back-link">← Back to Home</a>
     </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="../index.html" class="logo">
+                    <img src="../images/jerman-logo.png" alt="JERMAN Logo" class="logo-icon">
+                    <span class="logo-text">JERMAN</span>
+                </a>
+                <p>Providing world-class security solutions for Android devices since 2020. Trusted by millions worldwide.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="../index.html#features">Features</a></li>
+                    <li><a href="../index.html#pricing">Pricing</a></li>
+                    <li><a href="download.html">Download</a></li>
+                    <li><a href="contact.html">Enterprise</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="press.html">Press</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="help.html">Help Center</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 JERMAN. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://twitter.com/jaborman" target="_blank" aria-label="Twitter">𝕏</a>
+                <a href="https://facebook.com/jerman" target="_blank" aria-label="Facebook">f</a>
+                <a href="https://linkedin.com/company/jerman" target="_blank" aria-label="LinkedIn">in</a>
+                <a href="https://github.com/Tembocs" target="_blank" aria-label="GitHub">⌘</a>
+            </div>
+        </div>
+    </footer>
+
     <script src="../js/main.js"></script>
 </body>
 </html>

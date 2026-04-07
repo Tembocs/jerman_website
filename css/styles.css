@@ -245,10 +245,9 @@ nav {
     position: relative;
     background: 
         linear-gradient(135deg, rgba(2, 26, 13, 0.75) 0%, rgba(2, 26, 13, 0.65) 50%, rgba(2, 26, 13, 0.8) 100%),
-        url('../images/ChatGPT Image3.png');
+        url('../images/jerman-bg-3.png');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
 }
 
 .hero::before {
@@ -447,6 +446,42 @@ nav {
 }
 
 /* ===================================
+   Trust Badges
+   =================================== */
+.trust-badges {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2.5rem 4rem;
+    background: rgba(14, 138, 69, 0.03);
+    border-bottom: 1px solid rgba(14, 138, 69, 0.15);
+}
+
+.trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.trust-icon {
+    width: 24px;
+    height: 24px;
+    background: rgba(74, 232, 140, 0.15);
+    border: 1px solid rgba(74, 232, 140, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+/* ===================================
    Section Header
    =================================== */
 .section-header {
@@ -483,10 +518,9 @@ nav {
     position: relative;
     background: 
         linear-gradient(180deg, rgba(2, 26, 13, 0.88) 0%, rgba(2, 26, 13, 0.82) 50%, rgba(2, 26, 13, 0.9) 100%),
-        url('../images/ChatGPT Image2.png');
+        url('../images/jerman-bg-2.png');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
     overflow-x: hidden;
 }
 
@@ -768,7 +802,7 @@ nav {
     position: relative;
     background: 
         linear-gradient(180deg, rgba(2, 26, 13, 0.92) 0%, rgba(2, 26, 13, 0.88) 50%, rgba(2, 26, 13, 0.92) 100%),
-        url('../images/ChatGPT Image1.png');
+        url('../images/jerman-bg-1.png');
     background-size: cover;
     background-position: center top;
 }
@@ -889,7 +923,7 @@ nav {
     position: relative;
     background: 
         linear-gradient(180deg, rgba(2, 26, 13, 0.9) 0%, rgba(14, 138, 69, 0.08) 50%, rgba(2, 26, 13, 0.9) 100%),
-        url('../images/ChatGPT Image2.png');
+        url('../images/jerman-bg-2.png');
     background-size: cover;
     background-position: center;
 }
@@ -964,10 +998,9 @@ nav {
     position: relative;
     background: 
         linear-gradient(135deg, rgba(2, 26, 13, 0.85) 0%, rgba(2, 26, 13, 0.75) 50%, rgba(2, 26, 13, 0.88) 100%),
-        url('../images/ChatGPT Image1.png');
+        url('../images/jerman-bg-1.png');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
 }
 
 .cta-container {
@@ -1096,6 +1129,33 @@ footer {
 .social-links a:hover {
     background: var(--primary);
     color: white;
+}
+
+/* ===================================
+   Accessibility
+   =================================== */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    .floating-particles { display: none; }
+}
+
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    background: var(--primary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    z-index: 10000;
+    transition: top 0.3s;
+}
+.skip-link:focus {
+    top: 0;
 }
 
 /* ===================================
