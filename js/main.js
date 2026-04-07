@@ -13,8 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initPWA();
 });
 
-let deferredInstallPrompt;
-
 /**
  * Progressive Web App setup
  */
@@ -26,42 +24,6 @@ function initPWA() {
             });
         });
     }
-
-    window.addEventListener('beforeinstallprompt', (event) => {
-        event.preventDefault();
-        deferredInstallPrompt = event;
-        updateInstallButtons(true);
-    });
-
-    window.addEventListener('appinstalled', () => {
-        deferredInstallPrompt = null;
-        updateInstallButtons(false);
-    });
-
-    document.querySelectorAll('[data-install-app]').forEach(button => {
-        button.addEventListener('click', async () => {
-            if (deferredInstallPrompt) {
-                deferredInstallPrompt.prompt();
-                await deferredInstallPrompt.userChoice;
-                deferredInstallPrompt = null;
-                updateInstallButtons(false);
-                return;
-            }
-
-            alert('Installation is available in Chrome/Edge via the browser menu: Install app.');
-        });
-    });
-}
-
-function updateInstallButtons(canInstall) {
-    document.querySelectorAll('[data-install-app]').forEach(button => {
-        button.disabled = !canInstall;
-        if (!canInstall) {
-            button.setAttribute('title', 'Use your browser menu to install this app.');
-        } else {
-            button.removeAttribute('title');
-        }
-    });
 }
 
 /**
